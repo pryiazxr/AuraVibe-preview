@@ -49,9 +49,12 @@ jobs:
         working-directory: source
         run: npm run typecheck
 
-      - name: Run tests
+      -       - name: Run tests
         working-directory: source
         run: npm test
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
 
       - name: Build preview
         working-directory: source
